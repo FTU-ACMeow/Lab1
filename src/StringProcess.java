@@ -3,12 +3,16 @@ import java.util.*;
 import java.io.*;
 
 public class StringProcess {
-	public static String Merge (String[] Data) {
-		StringBuffer Res = new StringBuffer();
+	public static String mMerge (String[] data) {
+		
+		StringBuffer Res;
+		Res= new StringBuffer();
+		String[] Data=data;
 		for (int i = 0 ; i < Data.length ; i++) {
-			if (i > 0)
+			if (i > 0){
 				Res.append(" ");
-			Res = Res.append(Data[i]);
+			}
+			Res.append(Data[i]);
 		}
 		return Res.toString();
 	}
@@ -19,15 +23,20 @@ public class StringProcess {
 		for (int i = 0 ; i < Data.length() ; i++) {
 			if (Character.isLowerCase(Data.charAt(i)))
 				tmp = tmp + Data.charAt(i);
-			else if (tmp != "" && (Data.charAt(i) == ' ' || Data.charAt(i) == '\t' || Data.charAt(i) == '\n' || Data.charAt(i) == '.'  || Data.charAt(i) == ','  || Data.charAt(i) == '?'  || Data.charAt(i) == '!'  || Data.charAt(i) == ':'  || Data.charAt(i) == ';'  || Data.charAt(i) == '\'' || Data.charAt(i) == '\"' || Data.charAt(i) == '~'  || Data.charAt(i) == '('  || Data.charAt(i) == ')')) {
+			else if (!tmp.equals("") && (Data.charAt(i) == ' ' || Data.charAt(i) == '\t' || Data.charAt(i) == '\n' || Data.charAt(i) == '.'  || Data.charAt(i) == ','  || Data.charAt(i) == '?'  || Data.charAt(i) == '!'  || Data.charAt(i) == ':'  || Data.charAt(i) == ';'  || Data.charAt(i) == '\'' || Data.charAt(i) == '\"' || Data.charAt(i) == '~'  || Data.charAt(i) == '('  || Data.charAt(i) == ')')) {
 				Res.add(tmp);
 				tmp = "";
 			}
 		}
 		return Res.toArray(new String[Res.size()]);
 	}
+	/**
+	 * 
+	 * @param Data
+	 * @return
+	 */
 	public static String Format (String Data) {
-		return Merge(Split(Data));
+		return mMerge(Split(Data));
 	}
 	public static String[] LoadFile (String FileName) throws IOException {
 		String Data = "";
