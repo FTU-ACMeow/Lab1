@@ -8,7 +8,7 @@ class Test2 {
 	@Test
 	void testDijkstra() {
 		Graph G = new Graph();
-		G.Load(StringProcess.Split("a c b d c e"));
+		G.Load(new Strs("a c b d c e").s);
 		G.Dijkstra("a");
 		
 		HashMap<String,Integer> res = G.Dijkstra("a");

@@ -7,16 +7,16 @@ class Test1 {
 	void testGetBridge() throws IOException {
 		Graph G = new Graph();
 
-		G.Load(StringProcess.Split("a b c a d c"));
-		assertEquals(StringProcess.Merge(G.GetBridge("a","c")),"b d");
+		G.Load(new Strs("a b c a d c").s);
+		assertEquals(new Str(G.GetBridge("a","c")).s,"b d");
 		
-		G.Load(StringProcess.Split("a b c a d c"));
-		assertEquals(StringProcess.Merge(G.GetBridge("e","c")),"");
+		G.Load(new Strs("a b c a d c").s);
+		assertEquals(new Str(G.GetBridge("e","c")).s,"");
 		
-		G.Load(StringProcess.Split("a b c a d c"));
-		assertEquals(StringProcess.Merge(G.GetBridge("a","e")),"");
+		G.Load(new Strs("a b c a d c").s);
+		assertEquals(new Str(G.GetBridge("a","e")).s,"");
 
-		G.Load(StringProcess.Split("a b c d"));
-		assertEquals(StringProcess.Merge(G.GetBridge("a","d")),"");
+		G.Load(new Strs("a b c d").s);
+		assertEquals(new Str(G.GetBridge("a","d")).s,"");
 	}
 }
